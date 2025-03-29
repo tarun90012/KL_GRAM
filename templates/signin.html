@@ -1,0 +1,147 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'assets/images/favicon.png' %}" rel="icon" type="image/png">
+    <title>Sign In - KLGRAM</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/uikit.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">
+    <style>
+        .btn-register {
+            background-color: #FF0000;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .btn-register1 {
+            background-color: #FF0000;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .btn-register1:hover {
+            background-color: #FF0000;
+        }
+
+        .btn-register:hover {
+            background-color: #FF0000;
+        }
+
+        .form-input {
+            background-color: #FF0000;
+            border: 1px solid #d3d5d8;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #FF0000;
+        }
+
+        .btn-login {
+            background-image: linear-gradient(to bottom right, #FF0080, #FF4D00);
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .btn-login:hover {
+            background-image: linear-gradient(to bottom right, #87CEEB, #ff6900);
+        }
+
+
+        body {
+            background-image: url('{% static 'assets/images/background.jpg' %}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .bg-white {
+            background-image: url('{% static 'assets/images/header-bg.jpg' %}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="wrapper" class="flex flex-col justify-between h-screen">
+        <!-- header-->
+        <div class="bg-white py-4 shadow dark:bg-gray-800">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex items-center lg:justify-between justify-around">
+                    <a href="{% url 'signin' %}">
+                        <b><h1 style="font-size: 1.5rem;">KL__GRAM</h1></b>
+                    </a>
+
+<!--                    <div class="capitalize flex font-semibold hidden lg:block my-2 space-x-3 text-center text-sm">-->
+<!--    <a href="/about" class="btn-register1">About</a>-->
+<!--    <a href="/help" class="btn-register1">Help</a>-->
+<!--    <a href="/terms" class="btn-register1">Terms</a>-->
+<!--    <a href="/privacy" class="btn-register1">Privacy</a>-->
+<!--    -->
+<!--</div>-->
+                    <a href="/signup" class="btn-register">Register</a>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Content-->
+        <div>
+            <div class="lg:p-12 max-w-md max-w-xl lg:my-0 my-12 mx-auto p-6 space-y-">
+                <h1 class="lg:text-3xl text-xl font-semibold  mb-6"> Log in</h1>
+                <div>
+                    <style>
+                        h5 {
+                            color: red;
+                        }
+                    </style>
+                    {% for message in messages %}
+                    <h5>{{message}}</h5>
+                    {% endfor %}
+                </div>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="username" placeholder="Username" class="form-input">
+                    <input type="password" name="password" placeholder="Password" class="form-input">
+                    <button type="submit" class="btn-login w-full">Login</button>
+                    <div class="text-center mt-5 space-x-2">
+                        <p class="text-base"> Not registered? <a href="/signup" class="btn-register">Create an account</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="lg:mb-5 py-3 uk-link-reset">
+            <div class="flex flex-col items-center justify-between lg:flex-row max-w-6xl mx-auto lg:space-y-0 space-y-3">
+                <p class="capitalize">© copyright 2024 by KL_GRAM</p>
+            </div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/tippy.all.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'assets/js/uikit.js' %}"></script>
+    <script src="{% static 'assets/js/simplebar.js' %}"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+</body>
+
+</html>
